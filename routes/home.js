@@ -39,17 +39,13 @@ router.get("/test", async (req, res, next) => {
     });
 });
 
-router.get('/proxy', function(req, res, next) {
-  try{
+router.get("/proxy", function (req, res, next) {
+  try {
     request({
-      uri: 'http://www.giantbomb.com/api/search',
-      qs: {
-        api_key: '123456',
-        query: 'World of Warcraft: Legion'
-      }
+      uri: "https://jsonplaceholder.typicode.com/posts/",
     }).pipe(res);
-  } catch(err){
-    res.status(422).json({err: err})
+  } catch (err) {
+    res.status(422).json({ err: err });
   }
 });
 
