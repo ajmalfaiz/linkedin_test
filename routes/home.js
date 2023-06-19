@@ -12,7 +12,8 @@ router.post("/", async (req, res, next) => {
         "Content-Type": "application/x-www-form-urlencoded",
       },
     });
-    return response.json();
+    const data = response.json();
+    return res.send(data);
   } catch (error) {
     console.error("Error:", error);
     res.status(400).json({ error: error });
