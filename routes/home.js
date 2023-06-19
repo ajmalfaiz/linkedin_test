@@ -16,7 +16,7 @@ router.post("/", async (req, res, next) => {
     return res.json(data);
   } catch (error) {
     console.error("Error:", error);
-    res.status(400).json({ error: "An error occurred" });
+    res.status(400).json({ error: error });
   }
 });
 
