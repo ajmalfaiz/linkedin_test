@@ -39,14 +39,18 @@ router.get("/test", async (req, res, next) => {
     });
 });
 
-router.get("/proxy", async (req, res, next) => {
-  request({
-    uri: "http://www.giantbomb.com/api/search",
-    qs: {
-      api_key: "123456",
-      query: "World of Warcraft: Legion",
-    },
-  }).pipe(res);
+router.get('/proxy', function(req, res, next) {
+  try{
+    request({
+      uri: 'http://www.giantbomb.com/api/search',
+      qs: {
+        api_key: '123456',
+        query: 'World of Warcraft: Legion'
+      }
+    }).pipe(res);
+  } catch(err){
+    res.status(422).json({err: err})
+  }
 });
 
 module.exports = router;
