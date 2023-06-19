@@ -24,6 +24,7 @@ router.get("/test", async (req, res, next) => {
       "https://disease.sh/v3/covid-19/historical/all?lastdays=all",
       {
         headers: {
+          Method:'GET',
           "Content-Type": "application/json",
         },
       }
