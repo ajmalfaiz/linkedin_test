@@ -20,12 +20,11 @@ router.post("/", async (req, res, next) => {
   }
 });
 
-router.post("/test", async (req, res, next) => {
+router.get("/test", async (req, res, next) => {
   try {
     const response = await fetch(
       "https://disease.sh/v3/covid-19/historical/all?lastdays=all",
       {
-        method: "GET",
         headers: {
           Accept: "application.json",
           "Content-Type": "application/json",
