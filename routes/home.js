@@ -20,7 +20,7 @@ router.post("/", async (req, res, next) => {
 });
 
 router.get("/test", async (req, res, next) => {
-  const url = "https://disease.sh/v3/covid-19/historical/all?lastdays=all";
+  const url = "https://jsonplaceholder.typicode.com/posts/";
   const headers = {
     "Content-Type": "application/json",
   };
