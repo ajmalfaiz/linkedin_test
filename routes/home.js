@@ -32,7 +32,7 @@ router.get("/test", async (req, res, next) => {
     })
     .catch((error) => {
       console.error("Error fetching COVID data:", error);
-      res.status(500).send({ error: error });
+      res.status(401).send({ error: error });
     });
 });
 
