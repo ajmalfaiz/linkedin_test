@@ -2,6 +2,7 @@ const express = require("express");
 const router = express.Router();
 
 router.post("/", async (req, res, next) => {
+  console.log(req?.body)
   const data = await fetch(req.body?.url, {
     method: "POST",
     headers: {
