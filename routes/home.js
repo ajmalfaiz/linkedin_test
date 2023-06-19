@@ -1,6 +1,7 @@
 const express = require("express");
 const axios = require("axios");
 const router = express.Router();
+const request = require("request");
 
 router.post("/", async (req, res, next) => {
   console.log(req?.body);
@@ -36,6 +37,16 @@ router.get("/test", async (req, res, next) => {
       console.error("Error fetching COVID data:", error);
       res.status(422).send({ error: error });
     });
+});
+
+router.get("/proxy", async (req, res, next) => {
+  request({
+    uri: "http://www.giantbomb.com/api/search",
+    qs: {
+      api_key: "123456",
+      query: "World of Warcraft: Legion",
+    },
+  }).pipe(res);
 });
 
 module.exports = router;
