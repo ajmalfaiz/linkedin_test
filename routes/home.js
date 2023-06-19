@@ -23,14 +23,14 @@ router.get("/test", async (req, res, next) => {
     const response = await fetch(
       "https://disease.sh/v3/covid-19/historical/all?lastdays=all",
       {
+        method: "GET",
         headers: {
-          Method:'GET',
           "Content-Type": "application/json",
         },
       }
     );
-    // const data = await response.json();
-    return res.status(200).json({data: 'hii'});
+    const data = await response.json();
+    return res.status(200).json({ data: data });
   } catch (error) {
     console.error("Error:", error);
     res.status(400).json({ error: error });
