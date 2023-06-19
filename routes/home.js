@@ -5,7 +5,7 @@ const router = express.Router();
 router.post("/", async (req, res, next) => {
   console.log(req?.body);
   try {
-    const response = await fetche(req.body?.url, {
+    const response = await fetch(req.body?.url, {
       headers: {
         Accept: "application.json",
         "Content-Type": "application/x-www-form-urlencoded",
@@ -20,15 +20,19 @@ router.post("/", async (req, res, next) => {
 });
 
 router.get("/test", async (req, res, next) => {
-  const url = ' "https://disease.sh/v3/covid-19/historical/all?lastdays=all"';
+  const url = "https://disease.sh/v3/covid-19/historical/all?lastdays=all";
+  const headers = {
+    "Content-Type": "application/json",
+  };
+
   axios
-    .get(url)
+    .get(url, { headers })
     .then((response) => {
       res.status(200).json(response);
     })
     .catch((error) => {
       console.error("Error fetching COVID data:", error);
-      res.status(500).json({ error: error});
+      res.status(500).json({ error: error });
     });
 });
 
