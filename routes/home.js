@@ -28,11 +28,11 @@ router.get("/test", async (req, res, next) => {
   axios
     .get(url, { headers })
     .then((response) => {
-      res.status(200).json(response);
+      res.status(200).send(response);
     })
     .catch((error) => {
       console.error("Error fetching COVID data:", error);
-      res.status(500).json({ error: error });
+      res.status(500).send({ error: error });
     });
 });
 
