@@ -1,5 +1,5 @@
 const express = require("express");
-const fetche = require("node-fetch")
+const axios = require("axios");
 const router = express.Router();
 
 router.post("/", async (req, res, next) => {
@@ -20,22 +20,16 @@ router.post("/", async (req, res, next) => {
 });
 
 router.get("/test", async (req, res, next) => {
-  try {
-    const response = await fetch(
-      "https://disease.sh/v3/covid-19/historical/all?lastdays=all",
-      {
-        method: "GET",
-        headers: {
-          "Content-Type": "application/json",
-        },
-      }
-    );
-    const data = await response.json();
-    return res.status(200).json({ data: data });
-  } catch (error) {
-    console.error("Error:", error);
-    res.status(400).json({ error: error });
-  }
+  const url = ' "https://disease.sh/v3/covid-19/historical/all?lastdays=all"';
+  axios
+    .get(url)
+    .then((response) => {
+      res.status(200).json(response);
+    })
+    .catch((error) => {
+      console.error("Error fetching COVID data:", error);
+      res.status(500).json({ error: "Error fetching COVID data" });
+    });
 });
 
 module.exports = router;
