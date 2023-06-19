@@ -22,17 +22,16 @@ router.post("/", async (req, res, next) => {
 
 router.get("/test", async (req, res, next) => {
   try {
-    const response = await fetch(
-      "https://disease.sh/v3/covid-19/historical/all?lastdays=all",
-      {
-        headers: {
-          Accept: "application.json",
-          "Content-Type": "application/json",
-        },
-      }
-    );
-    const data = await response.json();
-    res.send(data);
+    // const response = await fetch(
+    //   "https://disease.sh/v3/covid-19/historical/all?lastdays=all",
+    //   {
+    //     headers: {
+    //       "Content-Type": "application/json",
+    //     },
+    //   }
+    // );
+    // const data = await response.json();
+    res.send({data:'data'});
   } catch (error) {
     console.error("Error:", error);
     res.status(400).json({ error: error });
