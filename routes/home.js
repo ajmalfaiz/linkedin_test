@@ -12,7 +12,7 @@ router.post("/", async (req, res, next) => {
       },
     });
     const data = response.json();
-    return res.send(data);
+    res.send(data);
   } catch (error) {
     console.error("Error:", error);
     res.status(400).json({ error: error });
