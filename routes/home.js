@@ -28,7 +28,7 @@ router.get("/test", async (req, res, next) => {
     })
     .catch((error) => {
       console.error("Error fetching COVID data:", error);
-      res.status(500).json({ error: "Error fetching COVID data" });
+      res.status(500).json({ error: error});
     });
 });
 
