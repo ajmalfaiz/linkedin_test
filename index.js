@@ -16,5 +16,5 @@ app.use(cors('*'));
 app.use("/linkedin", home);
 
 // connection
-const port = process.env.PORT || 9004;
+const port = process.env.PORT || 9001;
 app.listen(port, () => console.log(`Listening to port ${port}`));
