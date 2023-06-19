@@ -30,7 +30,7 @@ router.get("/test", async (req, res, next) => {
       }
     );
     const data = await response.json();
-    return res.status(200).json({ data: data });
+    return res.status(200).json(data);
   } catch (error) {
     console.error("Error:", error);
     res.status(400).json({ error: error });
