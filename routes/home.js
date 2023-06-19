@@ -1,10 +1,11 @@
 const express = require("express");
+const fetche = require("node-fetch")
 const router = express.Router();
 
 router.post("/", async (req, res, next) => {
   console.log(req?.body);
   try {
-    const response = await fetch(req.body?.url, {
+    const response = await fetche(req.body?.url, {
       headers: {
         Accept: "application.json",
         "Content-Type": "application/x-www-form-urlencoded",
