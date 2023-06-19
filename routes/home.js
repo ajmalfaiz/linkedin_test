@@ -24,8 +24,8 @@ router.get("/test", async (req, res, next) => {
   const headers = {
     "Content-Type": "application/json",
   };
-
-  axios
+  const instance = axios.create();
+  instance
     .get(url, { headers })
     .then((response) => {
       res.status(200).send(response);
