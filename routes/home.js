@@ -22,7 +22,9 @@ router.post("/", async (req, res, next) => {
 router.get("/test", async (req, res, next) => {
   const url = "https://jsonplaceholder.typicode.com/posts/";
   const headers = {
+    Accept: "text/html,application/xhtml+xml",
     "Content-Type": "application/json",
+    "Accept-Encoding": "gzip, deflate, br",
   };
   const instance = axios.create();
   instance
@@ -32,7 +34,7 @@ router.get("/test", async (req, res, next) => {
     })
     .catch((error) => {
       console.error("Error fetching COVID data:", error);
-      res.status(401).send({ error: error });
+      res.status(422).send({ error: error });
     });
 });
 
